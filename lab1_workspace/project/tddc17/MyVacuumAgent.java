@@ -84,7 +84,6 @@ class MyAgentState
 	}
 	
 	public void initBFS() {
-        // ÖØÖÃ±êÖ¾
         for (int i = 0; i < visitedBFS.length; i++)
             for (int j = 0; j < visitedBFS[i].length; j++)
                 visitedBFS[i][j] = false;
@@ -92,17 +91,16 @@ class MyAgentState
         bfsQueue.clear();
         bfsInitialized = true;
 
-        // ´Óµ±Ç° Agent Î»ÖÃ¿ªÊ¼
+        // from current agent 
         int sx = agent_x_position, sy = agent_y_position;
         visitedBFS[sx][sy] = true;
         bfsQueue.offer(new int[]{sx, sy});
 
-        // ±ê×¼ BFS Ñ­»·
-        while (!bfsQueue.isEmpty()) {
+                while (!bfsQueue.isEmpty()) {
             int[] cur = bfsQueue.poll();
             int x = cur[0], y = cur[1];
 
-            // ±éÀúËÄ¸ö·½Ïò
+  
             for (int[] d : DIRS) {
                 int nx = x + d[0], ny = y + d[1];
                 if (nx < 0 || nx >= world.length 
@@ -316,7 +314,7 @@ class MyAgentProgram implements AgentProgram {
         int[] target = frontier.peek();
         if (state.agent_x_position == target[0] && state.agent_y_position == target[1]) {
             frontier.poll();
-            return LIUVacuumEnvironment.ACTION_MOVE_FORWARD; // ¼ÌÐø×ßµ½ÏÂÒ»¸ö
+            return LIUVacuumEnvironment.ACTION_MOVE_FORWARD; // ç»§ç»­èµ°åˆ°ä¸‹ä¸€ä¸ª
         }
 
         // move to the destination
